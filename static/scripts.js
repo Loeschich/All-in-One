@@ -1,28 +1,36 @@
-// ⏱️ Live Datum & Uhrzeit
 function updateClock() {
   const now = new Date();
-  const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+  const date = now.toLocaleDateString('de-DE', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+  const time = now.toLocaleTimeString('de-DE', {
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
 
-  const date = now.toLocaleDateString('de-DE', optionsDate);
-  const time = now.toLocaleTimeString('de-DE', optionsTime);
-
-  document.getElementById('datetime').textContent = `${date} – ${time}`;
+  const clockElement = document.getElementById('datetime');
+  if (clockElement) {
+    clockElement.textContent = `${date} – ${time}`;
+  }
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// 🔄 Tab-System
+// Tabs
 function showTab(id) {
-  document.querySelectorAll('.tab').forEach(tab => tab.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add('active');
+  }
 }
 
-// ✅ To-Do: Hinzufügen
+// To-Dos
 function addTodo() {
   const input = document.getElementById('todoInput');
   const task = input.value.trim();
-  if (task === '') return;
+  if (!task) return;
 
   const li = document.createElement('li');
   li.textContent = task;
@@ -36,7 +44,6 @@ function addTodo() {
   saveTodos();
 }
 
-// 💾 Speicherfunktionen für To-Dos
 function saveTodos() {
   const items = [...document.querySelectorAll('#todoList li')].map(li => li.textContent);
   localStorage.setItem('todos', JSON.stringify(items));
@@ -57,8 +64,6 @@ function loadTodos() {
   });
 }
 
-// 🔃 Starte beim Laden
 document.addEventListener('DOMContentLoaded', () => {
   loadTodos();
-  showTab('overview');
 });
