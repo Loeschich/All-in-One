@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HomePanel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🏡 HomePanel</h1>
+      <button id="darkToggle">🌙</button>
+    </header>
+
+    <nav>
+      <button onclick="showSection('dashboard')">📅 Tag</button>
+      <button onclick="showSection('todo')">✅ To-Dos</button>
+      <button onclick="showSection('music')">🎵 Musik</button>
+      <button onclick="showSection('shortcuts')">🚪 Shortcuts</button>
+    </nav>
+
+    <main>
+      <section id="dashboard" class="panel active">
+        <h2>📅 Tagesübersicht</h2>
+        <p id="datetime"></p>
+        <p>Wetter & Kalender kommt später.</p>
+      </section>
+
+      <section id="todo" class="panel">
+        <h2>✅ To-Do-Liste</h2>
+        <input id="todoInput" placeholder="Neue Aufgabe..." />
+        <button onclick="addTodo()">➕</button>
+        <ul id="todoList"></ul>
+      </section>
+
+      <section id="music" class="panel">
+        <h2>🎵 Musik</h2>
+        <p>Spotify oder Lieblingssound einbauen.</p>
+      </section>
+
+      <section id="shortcuts" class="panel">
+        <h2>🚪 Quick-Aktionen</h2>
+        <button>🛌 Schlafmodus</button>
+        <button>🚶 Wohnung verlassen</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
