@@ -8,51 +8,46 @@
   <script defer src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 <body>
-  <div class="app-container">
-    <header>
-      <h1>🏠 HomePanel</h1>
-      <div class="datetime" id="datetime">🕒 Lade Uhrzeit...</div>
-    </header>
+  <header>
+    <h1>🏠 HomePanel</h1>
+    <div id="clock"></div>
+  </header>
 
-    <nav class="nav-tabs">
-      <button onclick="showTab('overview')">📅 Übersicht</button>
-      <button onclick="showTab('todos')">✅ To-Do</button>
-      <button onclick="showTab('music')">🎵 Musik</button>
-      <button onclick="showTab('smart')">📲 Smart</button>
-    </nav>
+  <nav>
+    <button onclick="showTab('overview')">📅 Übersicht</button>
+    <button onclick="showTab('todos')">✅ To-Dos</button>
+    <button onclick="showTab('music')">🎵 Musik</button>
+    <button onclick="showTab('smart')">📱 Smart</button>
+  </nav>
 
-    <main>
-      <section id="overview" class="tab active">
-        <h2>📆 Tagesübersicht</h2>
-        <div class="box">
-          <iframe src="https://wttr.in/?format=3" style="width:100%; border:none; font-size:1.2rem;"></iframe>
-        </div>
-      </section>
+  <!-- Übersicht -->
+  <section id="overview" class="tab active">
+    <h2>📆 Tagesübersicht</h2>
+    <div class="weather-box">
+      <div id="weather-icon" class="weather-icon">⛅</div>
+      <div id="weather-text" class="weather-text">Wetter wird geladen...</div>
+    </div>
+  </section>
 
-      <section id="todos" class="tab">
-        <h2>✅ To-Do Liste</h2>
-        <div class="box">
-          <input type="text" id="todoInput" placeholder="Neue Aufgabe..." />
-          <button onclick="addTodo()">➕</button>
-          <ul id="todoList"></ul>
-        </div>
-      </section>
+  <!-- To-Dos -->
+  <section id="todos" class="tab">
+    <h2>✅ To-Do-Liste</h2>
+    <input type="text" id="todo-input" placeholder="Neue Aufgabe..." />
+    <button onclick="addTodo()">➕</button>
+    <ul id="todo-list"></ul>
+  </section>
 
-      <section id="music" class="tab">
-        <h2>🎶 Musik</h2>
-        <div class="box">
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWYBO1MoTDhZI?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-      </section>
+  <!-- Musik -->
+  <section id="music" class="tab">
+    <h2>🎵 Musik</h2>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+  </section>
 
-      <section id="smart" class="tab">
-        <h2>📲 Smart Aktionen</h2>
-        <div class="box">
-          <button class="smart-btn">🌙 Schlafmodus</button>
-          <button class="smart-btn">🚪 Wohnung verlassen</button>
-        </div>
-      </section>
-    </main>
-  </div>
+  <!-- Smart Home -->
+  <section id="smart" class="tab">
+    <h2>📱 Smart Aktionen</h2>
+    <button class="smart-btn">🌙 Schlafmodus</button>
+    <button class="smart-btn">🚪 Wohnung verlassen</button>
+  </section>
 </body>
 </html>
