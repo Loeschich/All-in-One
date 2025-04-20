@@ -1,23 +1,21 @@
 :root {
-  --bg: #f5f5f5;
-  --text: #111;
-  --accent: #007aff;
-}
-body.dark {
-  --bg: #1a1a1a;
-  --text: #eee;
-  --accent: #0af;
+  --bg: #f2f2f2;
+  --panel: #ffffff;
+  --text: #333;
+  --accent: #4a90e2;
+  --accent-dark: #003e7e;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--text);
 }
 
 #app {
-  max-width: 600px;
+  max-width: 700px;
   margin: auto;
   padding: 1rem;
 }
@@ -28,35 +26,47 @@ header {
   align-items: center;
 }
 
+header h1 {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 nav {
   display: flex;
-  justify-content: space-around;
+  gap: 0.5rem;
   margin: 1rem 0;
+  flex-wrap: wrap;
 }
 
 nav button {
   flex: 1;
-  margin: 0.25rem;
-  padding: 0.5rem;
   background: var(--accent);
-  color: white;
   border: none;
+  color: white;
+  padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: bold;
+  cursor: pointer;
 }
 
-main .panel {
+.panel {
   display: none;
+  background: var(--panel);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-main .panel.active {
+.panel.active {
   display: block;
 }
 
 input, button {
   font-size: 1rem;
   padding: 0.5rem;
-  margin: 0.25rem 0;
+  margin-top: 0.5rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--accent);
+  border: 1px solid #ccc;
 }
