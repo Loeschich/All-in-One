@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All-in-One HomePanel</title>
+  <title>HomePanel</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script defer src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
@@ -11,7 +11,7 @@
   <div class="app-container">
     <header>
       <h1>🏠 HomePanel</h1>
-      <div class="datetime" id="datetime">🕒 Wird geladen...</div>
+      <div class="datetime" id="datetime">🕒 Lade Uhrzeit...</div>
     </header>
 
     <nav class="nav-tabs">
@@ -22,16 +22,14 @@
     </nav>
 
     <main>
-      <!-- Übersicht -->
-      <section id="overview" class="tab">
+      <section id="overview" class="tab active">
         <h2>📆 Tagesübersicht</h2>
         <div class="box">
-          <div id="weather">🌤️ Wetter wird geladen...</div>
+          <iframe src="https://wttr.in/?format=3" style="width:100%; border:none; font-size:1.2rem;"></iframe>
         </div>
       </section>
 
-      <!-- To-Do -->
-      <section id="todos" class="tab hidden">
+      <section id="todos" class="tab">
         <h2>✅ To-Do Liste</h2>
         <div class="box">
           <input type="text" id="todoInput" placeholder="Neue Aufgabe..." />
@@ -40,16 +38,14 @@
         </div>
       </section>
 
-      <!-- Musik -->
-      <section id="music" class="tab hidden">
+      <section id="music" class="tab">
         <h2>🎶 Musik</h2>
         <div class="box">
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWYBO1MoTDhZI?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
       </section>
 
-      <!-- Smart Aktionen -->
-      <section id="smart" class="tab hidden">
+      <section id="smart" class="tab">
         <h2>📲 Smart Aktionen</h2>
         <div class="box">
           <button class="smart-btn">🌙 Schlafmodus</button>
