@@ -1,139 +1,115 @@
-:root {
-  --bg-color: #f4f7fb;
-  --text-color: #222;
-  --primary: #4a90e2;
-  --card-bg: white;
-  --accent: #007aff;
-  --border-radius: 12px;
-  --shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
 body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-.app-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 1rem;
+  padding: 0;
+  background: #f4f7f9;
+  color: #333;
 }
 
 header {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+#clock {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #ddd;
-}
-
-header h1 {
-  font-size: 1.6rem;
-  color: var(--primary);
-  margin: 0;
-}
-
-.datetime {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.nav-tabs {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 0;
-  flex-wrap: wrap;
+  justify-content: center;
+  background: #e0e0e0;
+  padding: 0.5rem;
   gap: 0.5rem;
 }
 
-.nav-tabs button {
-  flex: 1;
-  padding: 0.6rem;
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius);
-  font-size: 1rem;
+nav button {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: 0.2s;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
-.nav-tabs button:hover {
-  background-color: #3f7cc2;
+nav button:hover {
+  background: #d1e9ff;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+section {
+  padding: 1.5rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  width: 60%;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #388e3c;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
 }
 
 .tab {
   display: none;
 }
 
-.tab.active,
-.tab:not(.hidden) {
+.tab.active {
   display: block;
 }
 
-h2 {
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-}
-
-.box {
-  background-color: var(--card-bg);
-  border-radius: var(--border-radius);
+/* Wetter-Widget */
+.weather-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem;
-  box-shadow: var(--shadow);
+  border-radius: 12px;
+  background: linear-gradient(90deg, #eef2f3, #cfd9df);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
-input[type="text"] {
-  width: 70%;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 0.5rem;
+.weather-icon {
+  font-size: 2.5rem;
 }
 
-button {
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  border: none;
-  background-color: var(--accent);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin-left: 0.5rem;
-}
-
-button:hover {
-  background-color: #005bbb;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 1rem;
-}
-
-li {
-  padding: 0.4rem 0;
-  border-bottom: 1px solid #eee;
-  font-size: 1rem;
+.weather-text {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .smart-btn {
+  background-color: #222;
+  color: white;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  margin: 0.3rem 0;
   display: block;
   width: 100%;
-  margin: 0.5rem 0;
-  padding: 0.75rem;
-  font-size: 1rem;
-  background-color: #333;
-  border-radius: 10px;
-  color: #fff;
-  border: none;
 }
