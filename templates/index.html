@@ -1,49 +1,62 @@
-<!-- Datei: index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HomePanel – All-in-One</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="scripts.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All-in-One HomePanel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 <body>
-  <div class="container">
+  <div class="app-container">
     <header>
-      <h1>🏡 HomePanel</h1>
-      <div class="datetime" id="datetime">🕒 Lade Uhrzeit...</div>
+      <h1>🏠 HomePanel</h1>
+      <div class="datetime" id="datetime">🕒 Wird geladen...</div>
     </header>
 
-    <nav>
-      <button onclick="showTab('overview')">🗓️ Übersicht</button>
+    <nav class="nav-tabs">
+      <button onclick="showTab('overview')">📅 Übersicht</button>
       <button onclick="showTab('todos')">✅ To-Do</button>
       <button onclick="showTab('music')">🎵 Musik</button>
-      <button onclick="showTab('smart')">📱 Smart</button>
+      <button onclick="showTab('smart')">📲 Smart</button>
     </nav>
 
-    <section id="overview" class="tab">
-      <h2>📅 Tagesübersicht</h2>
-      <div id="weather">☁️ Wetter wird geladen...</div>
-    </section>
+    <main>
+      <!-- Übersicht -->
+      <section id="overview" class="tab">
+        <h2>📆 Tagesübersicht</h2>
+        <div class="box">
+          <div id="weather">🌤️ Wetter wird geladen...</div>
+        </div>
+      </section>
 
-    <section id="todos" class="tab hidden">
-      <h2>📝 To-Do-Liste</h2>
-      <input type="text" id="todoInput" placeholder="Neue Aufgabe...">
-      <button onclick="addTodo()">➕</button>
-      <ul id="todoList"></ul>
-    </section>
+      <!-- To-Do -->
+      <section id="todos" class="tab hidden">
+        <h2>✅ To-Do Liste</h2>
+        <div class="box">
+          <input type="text" id="todoInput" placeholder="Neue Aufgabe..." />
+          <button onclick="addTodo()">➕</button>
+          <ul id="todoList"></ul>
+        </div>
+      </section>
 
-    <section id="music" class="tab hidden">
-      <h2>🎶 Musik</h2>
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX76Wlfdnj7AP?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </section>
+      <!-- Musik -->
+      <section id="music" class="tab hidden">
+        <h2>🎶 Musik</h2>
+        <div class="box">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWYBO1MoTDhZI?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </section>
 
-    <section id="smart" class="tab hidden">
-      <h2>📲 Smart Aktionen</h2>
-      <button class="smart-btn">🌙 Schlafmodus</button>
-      <button class="smart-btn">🚪 Wohnung verlassen</button>
-    </section>
+      <!-- Smart Aktionen -->
+      <section id="smart" class="tab hidden">
+        <h2>📲 Smart Aktionen</h2>
+        <div class="box">
+          <button class="smart-btn">🌙 Schlafmodus</button>
+          <button class="smart-btn">🚪 Wohnung verlassen</button>
+        </div>
+      </section>
+    </main>
   </div>
 </body>
 </html>
