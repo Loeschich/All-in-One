@@ -1,54 +1,30 @@
-function showSection(id) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+// Datei: scripts.js
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Datum + Zeit
+// Uhrzeit anzeigen
+function updateClock() {
   const now = new Date();
-  document.getElementById("datetime").textContent = now.toLocaleString();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const dateStr = now.toLocaleDateString('de-DE', options);
+  const timeStr = now.toLocaleTimeString('de-DE');
+  document.getElementById('datetime').textContent = `📅 ${dateStr} – 🕒 ${timeStr}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
 
-  // ToDos laden
-  loadTodos();
+// Tabs wechseln
+function showTab(tabId) {
+  document.querySelectorAll('.tab').forEach(el => el.classList.add('hidden'));
+  document.getElementById(tabId).classList.remove('hidden');
+}
 
-  // Darkmode (optional)
-  if (localStorage.getItem("darkmode") === "true") {
-    document.body.classList.add("dark");
-  }
-
-  document.getElementById("darkToggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    localStorage.setItem("darkmode", document.body.classList.contains("dark"));
-  });
-});
-
+// To-Do hinzufügen
 function addTodo() {
-  const input = document.getElementById("todoInput");
-  const value = input.value.trim();
-  if (!value) return;
-
-  const li = document.createElement("li");
-  li.textContent = value;
-  li.onclick = () => li.remove();
-
-  document.getElementById("todoList").appendChild(li);
-  input.value = "";
-  saveTodos();
-}
-
-function saveTodos() {
-  const items = [...document.querySelectorAll("#todoList li")].map(li => li.textContent);
-  localStorage.setItem("todos", JSON.stringify(items));
-}
-
-function loadTodos() {
-  const list = document.getElementById("todoList");
-  list.innerHTML = "";
-  const items = JSON.parse(localStorage.getItem("todos") || "[]");
-  items.forEach(text => {
-    const li = document.createElement("li");
-    li.textContent = text;
-    li.onclick = () => li.remove();
-    list.appendChild(li);
-  });
+  const input = document.getElementById('todoInput');
+  const task = input.value.trim();
+  if (task !== '') {
+    const li = document.createElement('li');
+    li.textContent = task;
+    document.getElementById('todoList').appendChild(li);
+    input.value = '';
+  }
 }
