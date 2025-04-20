@@ -1,72 +1,71 @@
-:root {
-  --bg: #f2f2f2;
-  --panel: #ffffff;
-  --text: #333;
-  --accent: #4a90e2;
-  --accent-dark: #003e7e;
-}
-
+/* Datei: style.css */
 body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: linear-gradient(to bottom right, #f0f4ff, #d6e0f5);
+  color: #222;
 }
 
-#app {
-  max-width: 700px;
+.container {
+  max-width: 800px;
   margin: auto;
-  padding: 1rem;
+  padding: 20px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 10px;
 }
 
-header h1 {
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+h1 {
+  font-size: 1.8rem;
 }
 
 nav {
   display: flex;
-  gap: 0.5rem;
-  margin: 1rem 0;
-  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
 }
 
 nav button {
-  flex: 1;
-  background: var(--accent);
-  border: none;
+  background: #4c63af;
   color: white;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.panel {
+section {
+  margin-bottom: 30px;
+}
+
+.hidden {
   display: none;
-  background: var(--panel);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-.panel.active {
-  display: block;
+input[type="text"] {
+  padding: 8px;
+  width: 70%;
+  margin-right: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
 }
 
-input, button {
-  font-size: 1rem;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
+button.smart-btn {
+  margin: 5px;
+  padding: 10px 16px;
+  background: #008080;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#datetime {
+  font-size: 0.9rem;
+  color: #555;
 }
